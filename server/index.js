@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import deliveryFeeRoutes from './routes/deliveryFeeRoutes.js';
+import orderRoutes from './routes/orderRoutes.js';
 
 import menuItemRoutes from './routes/menuItemRoutes.js';
 
@@ -17,6 +18,7 @@ app.use('/api/menu', menuItemRoutes);
 
 app.use('/api/delivery-fees', deliveryFeeRoutes);
 
+app.use('/api/orders', orderRoutes);
 
 
 
