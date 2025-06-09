@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import deliveryFeeRoutes from './routes/deliveryFeeRoutes.js';
 
 import menuItemRoutes from './routes/menuItemRoutes.js';
 
@@ -13,6 +14,12 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/menu', menuItemRoutes);
+
+app.use('/api/delivery-fees', deliveryFeeRoutes);
+
+
+
+
 
 
 //Test 
