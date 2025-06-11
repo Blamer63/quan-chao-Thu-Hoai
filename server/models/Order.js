@@ -9,17 +9,34 @@ const orderSchema = new mongoose.Schema({
     {
       menuItemId: { type: mongoose.Schema.Types.ObjectId, ref: 'MenuItem', required: true },
       quantity: { type: Number, default: 1 },
-      selectedAddOns: [{ name: String, extraCost: Number }]
+      notes: String,
+      selectedAddOns: [
+        {
+          name: String,
+          extraCost: Number
+        }
+      ]
     }
   ],
   deliveryFee: { type: Number, required: true },
   totalPrice: { type: Number, required: true },
+  paymentMethod: {
+    type: String,
+    enum: ['COD', 'Momo', 'Bank Transfer'],
+    required: true
+  },
+  paymentCompleted: { type: Boolean, default: false },
   status: {
     type: String,
-    enum: ['preparing', 'on the way', 'delivered'],
-    default: 'preparing'
+    enum: ['new', 'preparing', 'on-the-way', 'delivered'],
+    default: 'new'
   },
-  createdAt: { type: Date, default: Date.now }
-});
+  statusHistory: [
+    {
+      status: String,
+      updatedAt: { type: Date, default: Date.now }
+    }
+  ]
+}, { timestamps: true });
 
 export default mongoose.model('Order', orderSchema);

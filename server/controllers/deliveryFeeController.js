@@ -1,6 +1,5 @@
 import DeliveryFee from '../models/DeliveryFee.js';
 
-// GET all fees
 export const getAllFees = async (req, res) => {
   try {
     const fees = await DeliveryFee.find();

@@ -65,5 +65,5 @@ await MenuItem.insertMany(menuItems);
 await DeliveryFee.deleteMany();
 await DeliveryFee.insertMany(deliveryFees);
 
-console.log("✅ Seed data for MenuItems and DeliveryFees inserted successfully!");
+console.log("Seed data for MenuItems and DeliveryFees inserted successfully!");
 process.exit();

@@ -4,7 +4,6 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import deliveryFeeRoutes from './routes/deliveryFeeRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
-
 import menuItemRoutes from './routes/menuItemRoutes.js';
 
 dotenv.config();
@@ -23,10 +22,9 @@ app.use('/api/orders', orderRoutes);
 
 
 
-
 //Test 
 app.get('/', (req, res) => {
-  res.send('API is running...');
+  res.send('API is running');
 });
 
 mongoose.connect(process.env.MONGO_URI)
